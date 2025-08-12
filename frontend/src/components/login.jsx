@@ -10,17 +10,18 @@ function Login(){
     const [lpassword,setlpassword] = useState();
 
 
-    function HandleLogin(e){
+    function HandleLogin(e) {
+       e.preventDefault();
        const savedusername = localStorage.getItem("username");
        const savedpassword = localStorage.getItem("password");
 
-       if (lusername !== savedusername || lpassword !==savedpassword){
-        alert(" UserName or Password Not correct!");
+       if (lusername == savedusername || lpassword ==savedpassword){
+         alert ( " Login Successful....!");
+         Navigate("/Home"); 
        }
 
        else{
-        alert ( " Login Successful....!");
-        Navigate("/Home");
+         alert(" UserName or Password Not correct!");
        }
        
 
@@ -41,7 +42,7 @@ function Login(){
            <img src={homeimg } alt = "home pic"  className = " w-full h-[450px] " />
            <div className = "absolute inset-0 flex items-center justify-center text-violet-900 text-lg p-8">
             
-            <form className=" bg-white px-12 py-6" onSubmit={ HandleLogin(e)} >
+            <form className=" bg-white px-12 py-6" onSubmit={ HandleLogin} >
                 <h1 className = "bg-white text-violet-900 py-2 font-bold text-xl"> Login </h1> 
                 
                 <label  className> User Name </label> <br/>

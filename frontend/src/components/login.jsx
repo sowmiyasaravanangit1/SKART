@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../App.css";
 import homeimg from "../assets/karthomepic.jpg";
 import {useNavigate } from "react-router-dom"
@@ -5,6 +6,27 @@ import {useNavigate } from "react-router-dom"
 function Login(){
 
     const Navigate = useNavigate();
+    const [lusername,setlusername] = useState();
+    const [lpassword,setlpassword] = useState();
+
+
+    function HandleLogin(e){
+       const savedusername = localStorage.getItem("username");
+       const savedpassword = localStorage.getItem("password");
+
+       if (lusername !== savedusername || lpassword !==savedpassword){
+        alert(" UserName or Password Not correct!");
+       }
+
+       else{
+        alert ( " Login Successful....!");
+        Navigate("/Home");
+       }
+       
+
+    }
+
+
     return(
      <div> 
       <div className="flex flex-row justify-between items-center p-2">
@@ -19,12 +41,20 @@ function Login(){
            <img src={homeimg } alt = "home pic"  className = " w-full h-[450px] " />
            <div className = "absolute inset-0 flex items-center justify-center text-violet-900 text-lg p-8">
             
-            <form className=" bg-white px-12 py-6" >
+            <form className=" bg-white px-12 py-6" onSubmit={ HandleLogin(e)} >
                 <h1 className = "bg-white text-violet-900 py-2 font-bold text-xl"> Login </h1> 
+                
                 <label  className> User Name </label> <br/>
-                <input type= "text" name = "username " placeholder="Enter your Name" className = "border-2 p-1 border-violet-900 rounded w-[300px]" /> <br/>
+                <input type= "text" name = "username " placeholder="Enter your Name"
+                value= {lusername} onChange={ (e)=> setlusername(e.target.value)} required
+                className = "border-2 p-1 border-violet-900 rounded w-[300px]" /> <br/>
+                
+
                 <label  className> Password </label> <br/>
-                <input type= "text" name = "Password " placeholder="Enter your Password" className = "border-2 p-1 border-violet-900 rounded w-[300px]"/> <br/> <br/>
+                <input type= "text" name = "Password " placeholder="Enter your Password"
+                value = {lpassword}  onChange={ (e) => setlpassword(e.target.value)} required
+                className = "border-2 p-1 border-violet-900 rounded w-[300px]"/> <br/> <br/>
+                
                 <button type = "submit" className = "p-2 bg-violet-900 text-white text-lg w-[300px]" >
                     Login to SKART
                 </button>

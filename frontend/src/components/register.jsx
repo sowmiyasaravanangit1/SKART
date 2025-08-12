@@ -9,12 +9,21 @@ function Register(){
     const [username,setusername] =  useState();
     const [password,setpassword] = useState();
     const [confirmpassword,setconfirmpassword] = useState();
+    const [popupmessage, setpopupmessage] = useState();
+    const [popup,setpopup] = useState(false);
    
      function HandleRegister(e) {
         e.preventDefault();
       if(password!=confirmpassword){
-        alert("Password and Confirm Password are not same so pls Enter it crtly!");
-        return;
+        setpopupmessage("Password and Confirm Password are not same so pls Enter it crtly!");
+        setpopup(true);
+
+        setTimeout(() => {
+           setpopup(false);
+           return ; 
+        }, 1000);
+
+
       }
 
       localStorage.setItem("UserName", username);

@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "../App.css";
 import homeimg from "../assets/karthomepic.jpg";
-import {useNavigate } from "react-router-dom"
+import {useAsyncError, useNavigate } from "react-router-dom"
 
 function Login(){
 
     const Navigate = useNavigate();
     const [lusername,setlusername] = useState();
     const [lpassword,setlpassword] = useState();
+    const [popupmessage,setpopupmessage] = useState();
+    const [popup,setpopup] = useState(false);
 
 
     function HandleLogin(e) {
@@ -16,12 +18,22 @@ function Login(){
        const savedpassword = localStorage.getItem("password");
 
        if (lusername == savedusername || lpassword ==savedpassword){
-         alert ( " Login Successful....!");
-         Navigate("/Home"); 
+         setpopupmessage ( " Login Successful....!");
+         setpopup (true);
+
+         setTimeout(() => {
+             setpopup(false);
+             Navigate("/Home");   
+         }, 1000);
        }
 
        else{
-         alert(" UserName or Password Not correct!");
+         setpopupmessage(" UserName or Password Not correct!");
+         setpopup(true);
+
+         setTimeout(() => {
+            setpopup(false);
+         }, 1000);
        }
        
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../App.css";
 import homeimg from "../assets/karthomepic.jpg";
-import {useAsyncError, useNavigate } from "react-router-dom"
+import {useNavigate } from "react-router-dom"
 
 function Login(){
 
@@ -17,7 +17,7 @@ function Login(){
        const savedusername = localStorage.getItem("username");
        const savedpassword = localStorage.getItem("password");
 
-       if (lusername == savedusername || lpassword ==savedpassword){
+       if (lusername === savedusername || lpassword ===savedpassword){
          setpopupmessage ( " Login Successful....!");
          setpopup (true);
 

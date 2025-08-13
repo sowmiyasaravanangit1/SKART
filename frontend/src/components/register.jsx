@@ -14,21 +14,24 @@ function Register(){
    
      function HandleRegister(e) {
         e.preventDefault();
-      if(password!=confirmpassword){
-        setpopupmessage("Password and Confirm Password are not same so pls Enter it crtly!");
+      if(password != confirmpassword){
+        setpopupmessage("Password and Confirm Password are not same");
         setpopup(true);
 
         setTimeout(() => {
            setpopup(false);
-           return ; 
-        }, 1000);
+        }, 500);
 
 
       }
 
-      localStorage.setItem("UserName", username);
-      localStorage.setItem("password",password);
-      Navigate("/Login");
+      else {
+          localStorage.setItem("UserName", username);  
+          localStorage.setItem("password",password);
+          Navigate("/Login");
+      }
+
+     
 
      }
 
@@ -69,9 +72,14 @@ function Register(){
                     Login to SKART
                 </button>
                 <br/> <br/>
-
-            </form> </div>
+                 <div className=" text-violet-900 font-semibold text-sm  ">
+             {popupmessage}
             </div>
+
+            </form>  </div>
+            
+            </div>
+           
        <div className=" flex flex-col  bg-violet-900 items-center justify-center p-3">
         <div> <h1 className=" text-white text-2xl font-bold p-2 "> SKART</h1></div>
         <div> <p className=" text-white text-xl font-bold " > QKart is your one stop solution to the buy the latest trending items with </p>

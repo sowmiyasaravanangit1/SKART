@@ -16,9 +16,11 @@ import product14img from "../assets/product14.jpg";
 import product15img from "../assets/product15.jpg";
 import product16img from "../assets/product16.jpg";
 import { useCart } from "./cartcontext";
+import { useNavigate } from "react-router-dom";
 
 function ProductCard()  {
    const { addToCart } = useCart();
+   const Navigate = useNavigate();
    
    const products = [
      { id: 1,  image: product4img,   price: 5000, name: "shirt1" },
@@ -39,6 +41,17 @@ function ProductCard()  {
      { id: 16, image: product16img,  price: 510, name: "kidswear4" },
   ];
 
+
+  function HandleCart(product) {
+        let UserLogedin = localStorage.getItem( "userlogedin");
+          if (!UserLogedin){
+              alert("user didnt logged in so redirecting to login page");
+              Navigate("/Login");
+          }
+
+          else { addToCart(product);}
+  }
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-8">
       {products.map((p) => (
@@ -48,7 +61,7 @@ function ProductCard()  {
           <p>${p.price}</p>
           <button
             className="bg-violet-900 text-white w-full"
-           onClick={() => addToCart(p)} >
+           onClick={() => HandleCart(p) } >
             Add to Cart
           </button>
         </div>

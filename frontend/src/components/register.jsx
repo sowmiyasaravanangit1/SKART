@@ -11,10 +11,11 @@ function Register(){
     const [confirmpassword,setconfirmpassword] = useState();
     const [popupmessage, setpopupmessage] = useState();
     const [popup,setpopup] = useState(false);
+    const [userlogedin, setuserlogedin] = useState(false);
    
      function HandleRegister(e) {
         e.preventDefault();
-      if(password != confirmpassword){
+      if(password !== confirmpassword){
         setpopupmessage("Password and Confirm Password are not same");
         setpopup(true);
 
@@ -26,9 +27,13 @@ function Register(){
       }
 
       else {
+          setuserlogedin(true);
           localStorage.setItem("UserName", username);  
           localStorage.setItem("password",password);
+          localStorage.setItem("userlogedin", userlogedin);
+          
           Navigate("/Login");
+
       }
 
      

@@ -56,7 +56,7 @@ function Cart() {
               </div>
             ))}
             <div className="text-right mt-4 text-lg font-bold">
-              Subtotal: ${subtotal}
+              TOTAL : ${subtotal}
             </div>
           </div>
         )}

@@ -44,10 +44,12 @@ function Home() {
       <h1 className = "bg-white text-violet-900">
          India's fastest delivery to your door step </h1> </div>
       </div>
-    <div className = "flex flex-row">
+    {/* <div className = "flex flex-row"> */}
         <div> <ProductCard /></div>
-        <div> <Cart/></div>
-    </div>
+        {/* <div> <Cart/></div> */}
+   {/* </div> */}
+
+     <div> <Cart/></div>
      <div className=" flex flex-col  bg-violet-900 items-center justify-center p-4">
         <div> <h1 className=" text-white text-2xl font-bold p-2 "> SKART</h1></div>
         <div> <p className=" text-white text-xl font-bold " > QKart is your one stop solution to the buy the latest trending items with </p>

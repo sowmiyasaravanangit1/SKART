@@ -5,6 +5,7 @@ import Register from "./components/register";
 import Login from "./components/login";
 import Cart from "./components/cart";
 import { CartProvider } from "./components/cartcontext";
+import ProductDetails from "./components/description";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/Register" element={<Register />} />
             <Route path="/Home" element={<Home />} />
             <Route path="/Cart" element={<Cart />} />
+             <Route path="/productdetails/:id" element={<ProductDetails />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

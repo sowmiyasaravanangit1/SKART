@@ -44,16 +44,16 @@ export default function ProductDetails() {
     { id: 11, image: product11img, price: 150, name: "Household 3", description: "Multi-purpose storage container made from durable plastic.", rating: 4.3, reviewsCount: 65,  specifications: { Brand: "Milton", Material: "Plastic", Capacity: "5 Litres", Color: "Transparent", Warranty: "6 months" }, seller: "S Official Store" },
     { id: 12, image: product12img, price: 480, name: "Household 4", description: "Multi-purpose storage container made from durable plastic.", rating: 4.3, reviewsCount: 65,  specifications: { Brand: "Milton", Material: "Plastic", Capacity: "5 Litres", Color: "Transparent", Warranty: "6 months" }, seller: "S Official Store" },
     { id: 13, image: product13img, price: 770, name: "Kidswear 1", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80, highlights: ["Cartoon Print", "Soft Cotton", "Easy Wash"], specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "ds Kidswear" },
-    { id: 14, image: product14img, product13img, price: 490, name: "Kidswear 1", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80,  specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "ds Kidswear" },
-    { id: 15, image: product15img, product13img, price: 437, name: "Kidswear 1", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80,  specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "ds Kidswear" },,
-    { id: 16, image: product16img, product13img, price: 630, name: "Kidswear 1", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80, specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "ds Kidswear" },
+    { id: 14, image: product14img,  price: 490, name: "Kidswear 2", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80,  specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "ds Kidswear" },
+    { id: 15, image: product15img,  price: 437, name: "Kidswear 3", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80,  specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "ds Kidswear" },
+    { id: 16, image: product16img, price: 630, name: "Kidswear 4", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80, specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "ds Kidswear" },
     { id: 17, image: product17img, price: 6000, name: "Shirt 5", description: "Premium cotton formal shirt with a slim fit design. Breathable fabric, wrinkle-resistant.", rating: 4.5, reviewsCount: 215, highlights: ["Slim Fit", "Cotton Fabric", "Machine Wash", "Wrinkle Resistant"], specifications: { Brand: "Raymond", Material: "100% Cotton", Fit: "Slim", Color: "White", Warranty: "30 days return" }, seller: "Raymond Official Store" },
-    { id: 18, image: product18img, price: 540, name: "Kurthi 5", description: "Elegant printed kurthi made from rayon fabric.", rating: 4.4, reviewsCount: 90, highlights: ["Printed Design", "Rayon Fabric", "Ankle Length"], specifications: { Brand: "W for Women", Material: "Rayon", Fit: "Straight", Color: "Maroon", Warranty: "15 days return" }, seller: "W Official Store" },
+    { id: 18, image: product18img,  price: 210, name: "Kurthi 5", description: "Elegant printed kurthi made from rayon fabric.", rating: 4.4, reviewsCount: 90, specifications: { Brand: "W for Women", Material: "Rayon", Fit: "Straight", Color: "Maroon", Warranty: "15 days return" }, seller: "W Official Store" },
     { id: 19, image: product19img, price: 480, name: "Household 5", description: "Multi-purpose storage container made from durable plastic.", rating: 4.3, reviewsCount: 65, specifications: { Brand: "Milton", Material: "Plastic", Capacity: "5 Litres", Color: "Transparent", Warranty: "6 months" }, seller: "S Official Store" },
-    { id: 20, image: product20img, product13img, price: 410, name: "Kidswear 1", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80,  specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "UCB Kidswear" },
+    { id: 20, image: product20img, price: 410, name: "Kidswear 5", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80,  specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "UCB Kidswear" },
   ];
 
-  const product = products.find((p) => p.id === parseInt(id));
+  const product = products.find((p) => p && p.id === parseInt(id));
 
   if (!product) {
     return (
@@ -64,9 +64,17 @@ export default function ProductDetails() {
     );
   }
     const HandleCheckout  =  () => {
-    addToCart(product);
-    Navigate("/checkout");
+    let checklogin = localStorage.getItem("userlogedin");
 
+    if (!checklogin) {    
+        alert(" user didnt logged in ");
+        Navigate("/login");
+    }
+
+    else {
+       addToCart(product);
+       Navigate("/checkout");
+    }
   }
 
 
@@ -82,7 +90,7 @@ export default function ProductDetails() {
             <h1 className="text-2xl font-bold">{product.name}</h1>
 
             <div className="flex items-center gap-2 mt-2">
-              <span className="text-yellow-500">⭐ {product.rating}</span>
+              <span className="text-yellow-500">  {product.rating}</span>
               <span className="text-gray-600">({product.reviewsCount} reviews)</span>
             </div>
 

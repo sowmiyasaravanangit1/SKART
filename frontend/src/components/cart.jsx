@@ -18,9 +18,8 @@ function Cart() {
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-row gap-4 justify-between items-center border-b py-4"
-              >
-                <div className=" flex flex-col gap-1 "> 
+                className="flex flex-row gap-4 justify-between items-center border-b py-4">
+                <div className=" flex flex-col gap-1"> 
                   <div> <img
                   src={item.image}
                   alt={item.name}
@@ -30,8 +29,7 @@ function Cart() {
                   </div>
                   <div> <p>${item.price}</p>  </div> 
                 </div> 
-      
-                <div className="flex gap-2  items-center">
+                <div className="flex gap-2 items-center">
                   <button
                     onClick={() => changeQuantity(item.id, -1)}
                     className="px-2 bg-violet-200 text-violet"

@@ -53,7 +53,7 @@ export default function ProductDetails() {
     { id: 20, image: product20img, price: 410, name: "Kidswear 5", description: "Cotton t-shirt for kids with vibrant cartoon print.", rating: 4.4, reviewsCount: 80,  specifications: { Brand: "UCB Kids", Material: "Cotton", Size: "6-8 Years", Color: "Red", Warranty: "10 days return" }, seller: "UCB Kidswear" },
   ];
 
-  const product = products.find((p) => p && p.id === parseInt(id));
+  const product = products.find((p) => p.id === parseInt(id));
 
   if (!product) {
     return (
@@ -76,8 +76,7 @@ export default function ProductDetails() {
        Navigate("/checkout");
     }
   }
-
-
+  
  return (
     <div className="p-2 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
       <div className="md:col-span-2 px-2">
@@ -95,7 +94,6 @@ export default function ProductDetails() {
             </div>
 
             <p className="text-lg mt-2 text-gray-700">{product.description}</p>
-
             <p className="text-3xl font-semibold mt-4">₹{product.price}</p>
 
             <div className="flex gap-3">
@@ -120,15 +118,14 @@ export default function ProductDetails() {
           </div>
         </div>
 
-        {/* Specifications */}
         <div className="mt-6">
           <h2 className="text-lg font-semibold">Specifications:</h2>
           <table className="w-full mt-2 border border-gray-300">
             <tbody>
               {Object.entries(product.specifications).map(([key, value], index) => (
                 <tr key={index} className="border-b">
-                  <td className="p-2 font-medium bg-gray-100">{key}</td>
-                  <td className="p-2">{value}</td>
+                  <td className="p-2 font-medium shadow-md">{key}</td>
+                  <td className="p-2 font-medium shadow-md">{value}</td>
                 </tr>
               ))}
             </tbody>
@@ -166,8 +163,7 @@ export default function ProductDetails() {
                 <div className="flex gap-2  items-center">
                   <button
                     onClick={() => changeQuantity(item.id, -1)}
-                    className="px-2 bg-violet-200 text-violet"
-                  >
+                    className="px-2 bg-violet-200 text-violet">
                     -
                   </button>
                   <span className="px-4">{item.quantity}</span>

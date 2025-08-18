@@ -50,22 +50,19 @@ function ProductCard() {
   const handleCart = (product) => {
     navigate(`/productdetails/${product.id}`);
   };
-
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-8">
       {products.map((p) => (
         <div
           key={p.id}
           className="border-violet-200 border-2 text-lg p-2 cursor-pointer"
-          onClick={() => handleCart(p)}
-        >
+          onClick={() => handleCart(p)} >
           <img src={p.image} alt={p.name} className="w-[200px] h-[200px]" />
           <p>{p.name}</p>
           <p>₹{p.price}</p>
           <button
             className="bg-violet-900 text-white w-full mt-2"
             onClick={(e) => {
-              e.stopPropagation();
               handleCart(p);
             }}
           >

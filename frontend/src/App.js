@@ -8,7 +8,7 @@ import { CartProvider } from "./components/cartcontext";
 import ProductDetails from "./components/description";
 import CheckOut from "./components/checkout";
 import Submit from "./components/submit";
-
+import Order from "./components/orders";
 function App() {
   return (
     <div className="App">
@@ -23,6 +23,7 @@ function App() {
             <Route path="/productdetails/:id" element={<ProductDetails />} />
             <Route path = "/checkout"  element ={ <CheckOut />} />
             <Route path = "/submited" element = { <Submit />} /> 
+             <Route path="/orders" element={<Order />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

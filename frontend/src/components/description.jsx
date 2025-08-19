@@ -23,6 +23,7 @@ import product17img from "../assets/product17.jpg";
 import product18img from "../assets/product18.jpg";
 import product19img from "../assets/product19.jpg";
 import product20img from "../assets/product20.jpg";
+import Review from "../components/review";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -198,6 +199,7 @@ export default function ProductDetails() {
         )}
       </div>
     </div>
+    <Review /> 
     </div>
   );
 }

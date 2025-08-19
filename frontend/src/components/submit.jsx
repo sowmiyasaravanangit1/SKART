@@ -1,13 +1,18 @@
 import { useNavigate } from "react-router-dom";
+import {useCart} from "./cartcontext";
 
 function Submit({ onClose }) {
   const navigate = useNavigate();
+  const { clearCart } = useCart(); 
 
   const PlaceOrder = () => {
     // Navigate to home
+    clearCart();
     navigate("/");
     // Close popup after navigation
-    if (onClose) onClose();
+    if (onClose)
+      clearCart();
+      onClose();
   };
 
   return (

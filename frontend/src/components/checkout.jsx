@@ -88,7 +88,6 @@ function CheckOut() {
           )}
         </div>
       </div>
-
       <div className="flex flex-col bg-violet-900 items-center justify-center p-12">
         <h1 className="text-white text-2xl font-bold p-2">SKART</h1>
         <p className="text-white text-xl font-bold">

@@ -6,10 +6,8 @@ function Submit({ onClose }) {
   const { clearCart } = useCart(); 
 
   const PlaceOrder = () => {
-    // Navigate to home
     clearCart();
     navigate("/");
-    // Close popup after navigation
     if (onClose)
       clearCart();
       onClose();

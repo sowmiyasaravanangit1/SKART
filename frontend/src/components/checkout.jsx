@@ -7,8 +7,8 @@ import Submit from "./submit";
 function CheckOut() {
   const [address, setAddress] = useState("");
   const [showPopup, setShowPopup] = useState(false);
-  const [phone, setPhone] = useState("");   // keep empty string as default
-  const [name, setName] = useState("");     // keep empty string as default
+  const [phone, setPhone] = useState("");   
+  const [name, setName] = useState("");     
   const navigate = useNavigate();
   const { cart, subtotal } = useCart(); 
   
@@ -28,7 +28,7 @@ function CheckOut() {
 
   return (
     <div>
-      {/* HEADER */}
+
       <div className="flex flex-row justify-between items-center p-2 border-2 border-violet-100 shadow-md">
         <h1 className="text-3xl text-violet-900 font-bold">SKART</h1>
         <button
@@ -39,9 +39,9 @@ function CheckOut() {
         </button>
       </div>
 
-      {/* MAIN CONTENT */}
+      
       <div className="px-16 flex flex-row gap-96 py-16">
-        {/* SHIPPING FORM */}
+      
         <div className="text-left">
           <form onSubmit={HandleCSubmit}>
             <h1 className="font-bold text-2xl text-violet-900">
@@ -83,8 +83,7 @@ function CheckOut() {
             </button>
           </form>
         </div>
-
-        {/* ORDER DETAILS */}
+          
         <div>
           <h1 className="py-2 font-bold text-xl text-violet-900">
             ORDER DETAILS
@@ -112,7 +111,6 @@ function CheckOut() {
         </div>
       </div>
 
-      {/* FOOTER */}
       <div className="flex flex-col bg-violet-900 items-center justify-center p-12">
         <h1 className="text-white text-2xl font-bold p-2">SKART</h1>
         <p className="text-white text-xl font-bold">
@@ -123,7 +121,6 @@ function CheckOut() {
         </p>
       </div>
 
-      {/* POPUP */}
       {showPopup && <Submit onClose={() => setShowPopup(false)} />}
     </div>
   );

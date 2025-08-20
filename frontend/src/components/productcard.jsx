@@ -51,11 +51,11 @@ function ProductCard() {
     navigate(`/productdetails/${product.id}`);
   };
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-8 ">
       {products.map((p) => (
         <div
           key={p.id}
-          className="border-violet-200 border-2 text-lg p-2 cursor-pointer"
+          className="border-violet-200 border-2 text-lg p-2 cursor-pointer hover:scale-105 hover:bg-violet-200 transition"
           onClick={() => handleCart(p)} >
           <img src={p.image} alt={p.name} className="w-[200px] h-[200px]" />
           <p>{p.name}</p>

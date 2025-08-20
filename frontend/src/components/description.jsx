@@ -30,7 +30,6 @@ export default function ProductDetails() {
   const { cart, addToCart, removeFromCart, changeQuantity, subtotal } = useCart();
   const Navigate = useNavigate();
 
-
   const products = [
     { id: 1, image: product4img, price: 5000, name: "Shirt 1", description: "Premium cotton formal shirt with a slim fit design. Breathable fabric, wrinkle-resistant.", rating: 4.5, reviewsCount: 215, highlights: ["Slim Fit", "Cotton Fabric", "Machine Wash", "Wrinkle Resistant"], specifications: { Brand: "Raymond", Material: "100% Cotton", Fit: "Slim", Color: "White", Warranty: "30 days return" }, seller: "K Official Store" },
     { id: 2, image: product2img, price: 5340, name: "Shirt 2", description: "Premium cotton formal shirt with a slim fit design. Breathable fabric, wrinkle-resistant.", rating: 4.5, reviewsCount: 215, highlights: ["Slim Fit", "Cotton Fabric", "Machine Wash", "Wrinkle Resistant"], specifications: { Brand: "Raymond", Material: "100% Cotton", Fit: "Slim", Color: "White", Warranty: "30 days return" }, seller: "K Official Store" },
@@ -134,7 +133,6 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      {/* Right side - Cart */}
     <div className="px-2 py-2">
       <div className="pb-16 px-4 pt-4 border-2 border-violet-200">
         {cart.length === 0 ? (

@@ -40,7 +40,7 @@ export const CartProvider = ({ children }) => {
     0
   );
  const clearCart = () => {
-    setCart([]);        // reset cart items
+    setCart([]);    
   }; 
   return (
     <CartContext.Provider
